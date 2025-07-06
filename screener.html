@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>价值罗盘 - 股票筛选器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/global.css">
+    <style>
+        .screener-layout { display: flex; gap: 2rem; align-items: flex-start; }
+        .filters { flex: 1; position: sticky; top: 2rem; }
+        .results { flex: 3; }
+        .filter-group { margin-bottom: 1.5rem; }
+        .filter-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .filter-group input, .filter-group select { width: 100%; padding: 0.5rem; box-sizing: border-box; font-size: 1rem; }
+        .results-table { width: 100%; border-collapse: collapse; }
+        .results-table th, .results-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>股票筛选器</h1>
+            <p class="subtitle">根据您的价值标准，发现被低估的宝石</p>
+        </header>
+        
+        <nav class="main-nav">
+             <a href="index.html">市场概览</a> 
+             <a href="screener.html" class="active">股票筛选器</a> 
+             <a href="watchlist.html">(我的自选股)</a>
+        </nav>
+
+        <div class="screener-layout">
+            <aside class="filters card">
+                <h3>筛选条件</h3>
+                <div class="filter-group">
+                    <label for="pe-max">市盈率 (PE) 小于</label>
+                    <input type="number" id="pe-max" value="20">
+                </div>
+                <div class="filter-group">
+                    <label for="roe-min">净资产收益率 (ROE) 大于 (%)</label>
+                    <input type="number" id="roe-min" value="15">
+                </div>
+                <div class="filter-group">
+                    <label for="market-cap-min">市值大于 (亿美元)</label>
+                    <input type="number" id="market-cap-min" value="100">
+                </div>
+                <button style="width:100%; padding: 0.75rem; font-size: 1rem; background-color: var(--primary-color); color: white; border: none; border-radius: 6px; cursor: pointer;">开始筛选</button>
+            </aside>
+
+            <main class="results card">
+                <h3>筛选结果 (3 只股票)</h3>
+                <table class="results-table">
+                    <thead><tr><th>股票</th><th>PE</th><th>ROE</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr><td>英特尔 (INTC)</td><td>15</td><td>18%</td><td><a href="stock-detail.html">查看详情</a></td></tr>
+                        <tr><td>花旗银行 (C)</td><td>12</td><td>16%</td><td><a href="stock-detail.html">查看详情</a></td></tr>
+                        <tr><td>阿里巴巴 (BABA)</td><td>18</td><td>20%</td><td><a href="stock-detail.html">查看详情</a></td></tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+
+        <footer><p>数据仅供参考，不构成投资建议。</p></footer>
+    </div>
+</body>
+</html>
